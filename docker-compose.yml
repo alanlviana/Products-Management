@@ -1,0 +1,23 @@
+version: '3.0'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: productsdb
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbuserpassword
+    ports:
+      - "3306:3306"
+    restart: always
+
+  api:
+    depends_on:
+      - db
+    container_name: api
+    build: Products.API/.
+    ports:
+      - "5000:80"
+    restart: always
