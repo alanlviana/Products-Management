@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Products.API.Models;
 using Products.API.Repositories.Interfaces;
@@ -8,6 +9,7 @@ namespace Products.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         public IProductRepository ProductRepository { get; }

@@ -1,4 +1,4 @@
-version: '3.0'
+version: "3.0"
 
 services:
   db:
@@ -20,4 +20,33 @@ services:
     build: Products.API/.
     ports:
       - "5000:80"
+    restart: always
+
+  db_auth:
+    image: postgres:13
+    container_name: db_auth
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:12.0.4
+    container_name: keycloak
+    volumes:
+      - ./docker/keycloak:/opt/jboss/keycloak/imports
+    environment:
+      KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/realm-export.json
+      DB_VENDOR: POSTGRES
+      DB_ADDR: db_auth
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin123
+    ports:
+      - 8080:8080
+    depends_on:
+      - db_auth
     restart: always
