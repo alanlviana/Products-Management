@@ -1,0 +1,21 @@
+.headerArea{
+    background:  var(--primary-color);
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    color: white;
+    font-size: 20px;
+    margin: 0px 0px 0px 10px;
+}
+
+
+.headerButton{
+    margin-right: 10px;
+    width: 100px;
+    height: 25px;
+}

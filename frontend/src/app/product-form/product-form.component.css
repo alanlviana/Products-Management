@@ -1,0 +1,35 @@
+.componentArea{
+    width: 800px;
+}
+
+.inputArea{
+    margin-bottom: 10px;
+}
+
+.inputArea label{
+    display: block;
+    width: 200px;
+}
+
+.inputArea input{
+    display: block;;
+    height: 30px;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    padding-left: 15px;
+}
+
+.error{
+    color: red;
+}
+
+.saveButton{
+    height: 35px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.cancelButton{
+    height: 35px;
+    width: 200px;
+}

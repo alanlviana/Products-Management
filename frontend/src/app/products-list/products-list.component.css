@@ -1,0 +1,39 @@
+.componentArea{
+    width: 800px;
+}
+
+.headerArea{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newButton{
+    height: 25px;
+    width: 100px;
+}
+
+.tableStyled{
+    width: 100%;
+}
+
+.tableStyled thead tr{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.tableStyled tbody tr:nth-of-type(even) {
+    background-color: var(--primary-color-light);
+}
+
+.actionButtonsArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.actionButton{
+    height: 25px;
+    width: 75px;
+}

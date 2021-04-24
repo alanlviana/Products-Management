@@ -1,0 +1,32 @@
+<div class="componentArea">
+    <h1>{{product?.productName}}</h1>
+
+    <div *ngIf="product">
+        <div class="inputArea">
+            <label>Product Name:</label>
+            <input type="text"  [(ngModel)]="product.productName"  />
+            <span class='error'>{{errors.ProductName}}</span>
+        </div>
+        <div class="inputArea">
+            <label>UPC</label>
+            <input type="text" [(ngModel)]="product.upc" />
+            <span class='error'>{{errors.UPC}}</span>
+        </div>
+        <div class="inputArea">
+            <label>SKU</label>
+            <input type="text"  [(ngModel)]="product.sku"  />
+            <span class='error'>{{errors.SKU}}</span>
+        </div>
+        <div class="inputArea">
+            <label>Price</label>
+            <input type="number"  [(ngModel)]="product.price"  />
+            <span class='error'>{{errors.Price}}</span>
+        </div>
+
+        <div class="buttonSaveArea">
+            <button class='saveButton applicationButton' (click)='save()'>Save</button>
+            <button class='cancelButton applicationButton' (click)='cancel()'>Cancel</button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="componentArea">
+    <div class="headerArea">
+        <h1>Product list</h1>
+        <button class="newButton applicationButton" (click)='createProduct()'>New</button>
+    </div>
+
+    <table class='tableStyled'>
+        <thead>
+            <tr>              
+                <th>Product Name</th>
+                <th>UPC</th>
+                <th>SKU</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{ product.productName }}</td>
+                <td>{{ product.upc }}</td>
+                <td>{{ product.sku }}</td>
+                <td>{{ numberToCurrencyFormat(product.price) }}
+                </td>
+                <td>
+                    <div class="actionButtonsArea">
+                        <button class="actionButton applicationButton" (click)="editProduct(product.id!)" >Edit</button>
+                        <button class="actionButton applicationButton" (click)="deleteProduct(product.id!)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

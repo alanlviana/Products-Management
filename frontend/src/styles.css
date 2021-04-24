@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color: #bf7d06;
+    --primary-color-light: rgb(248, 221, 170);
+    --default-text-color: #231701;
+}
+
+body{
+    margin: 0px;
+    font-family: sans-serif;
+    color: var(--default-text-color)
+}
+
+.applicationButton{
+    background-color: var(--primary-color);
+    border: 1px solid white;
+    color: white;
+}
