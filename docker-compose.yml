@@ -59,3 +59,26 @@ services:
     ports:
       - "4200:80"
     restart: always 
+
+  prometheus:
+    image: prom/prometheus:v2.26.0
+    container_name: prometheus
+    ports:
+    - 9090:9090
+    volumes:
+    - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+    - api
+    restart: always
+    
+  grafana:
+    image: grafana/grafana:6.7.2
+    container_name: grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
+    environment:
+      GF_INSTALL_PLUGINS: grafana-piechart-panel,grafana-clock-panel,briangann-gauge-panel,natel-plotly-panel,grafana-simple-json-datasource
+    depends_on:
+      - prometheus

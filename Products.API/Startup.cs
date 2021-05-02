@@ -95,6 +95,7 @@ namespace Products.API
                     });
             });
 
+            services.AddMvc().AddMetrics();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
