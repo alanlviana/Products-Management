@@ -16,8 +16,8 @@
   "editable": true,
   "gnetId": 2204,
   "graphTooltip": 1,
-  "id": 2,
-  "iteration": 1603211239190,
+  "id": 1,
+  "iteration": 1619974006100,
   "links": [],
   "panels": [
     {
@@ -2793,8 +2793,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "GerenciadorFila.API",
-          "value": "GerenciadorFila.API"
+          "text": "Products.API",
+          "value": "Products.API"
         },
         "datasource": "$datasource",
         "definition": "",
@@ -2978,7 +2978,7 @@
   },
   "timezone": "browser",
   "title": "App Metrics - Web Monitoring - Prometheus",
-  "uid": "s_Tf74pMk",
+  "uid": "_RJXswrGk",
   "variables": {
     "list": []
   },
