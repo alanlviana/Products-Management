@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using App.Metrics;
+using App.Metrics.AspNetCore;
+using App.Metrics.Formatters.Prometheus;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Products.API
 {
@@ -16,11 +13,22 @@ namespace Products.API
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IHostBuilder CreateHostBuilder(string[] args) {
+
+            var hostBuilder = Host.CreateDefaultBuilder(args)
+                                  .UseMetrics(options =>
+                                      {
+                                          options.EndpointOptions = endpointsOptions =>
+                                          {
+                                              endpointsOptions.MetricsTextEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
+                                              endpointsOptions.MetricsEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
+                                          };
+                                      })
+                                  .ConfigureWebHostDefaults(webBuilder =>
+                                  {
+                                      webBuilder.UseStartup<Startup>();
+                                  });
+            return hostBuilder;
+        }            
     }
 }
